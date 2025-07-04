@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Traffic Volume Estimation</title>
+</head>
+<body background="https://th.bing.com/th/id/OIP.MauRorlht5vz34FrUffNlwHaE8?o=7rm=3&rs=1&pid=ImgDetMain&o=7&rm=3" 
+      text="white" 
+      style="background-size: cover; background-repeat: no-repeat; background-position: center;">
+
+    <div class="Login">
+        <center><h1>Traffic Volume Estimation</h1></center>
+
+        <!-- Main Input Form -->
+        <form action="/predict" method="post">
+            <h2>Please enter the following details</h2>
+
+            <label for="holiday">Holiday:</label>
+            <select id="holiday" name="holiday">
+                <option value=7>None</option>
+                <option value=1>Columbus Day</option>
+                <option value=10>Veterans Day</option>
+                <option value=9>Thanksgiving Day</option>
+                <option value=0>Christmas Day</option>
+                <option value=6>New Year's Day</option>
+                <option value=11>Washington's Birthday</option>
+                <option value=5>Memorial Day</option>
+                <option value=2>Independence Day</option>
+                <option value=8>State Fair</option>
+                <option value=3>Labor Day</option>
+                <option value=4>Martin Luther King Jr Day</option>
+            </select><br><br>
+
+            <label>Temperature:</label>
+            <input type="number" name="temp" required /><br><br>
+
+            <label>Rain:</label>
+            <input type="number" name="rain" min="0" max="1" required /><br><br>
+
+            <label>Snow:</label>
+            <input type="number" name="snow" min="0" max="1" required /><br><br>
+
+            <label for="weather">Weather:</label>
+            <select id="weather" name="weather">
+                <option value=1>Clouds</option>
+                <option value=0>Clear</option>
+                <option value=6>Rain</option>
+                <option value=2>Drizzle</option>
+                <option value=5>Mist</option>
+                <option value=4>Haze</option>
+                <option value=3>Fog</option>
+                <option value=10>Thunderstorm</option>
+                <option value=8>Snow</option>
+                <option value=9>Squall</option>
+                <option value=7>Smoke</option>
+            </select><br><br>
+
+            <label>Year:</label>
+            <input type="number" name="year" min="2012" max="2022" required /><br><br>
+
+            <label>Month:</label>
+            <input type="number" name="month" min="1" max="12" required /><br><br>
+
+            <label>Day:</label>
+            <input type="number" name="day" min="1" max="31" required /><br><br>
+
+            <label>Hours:</label>
+            <input type="number" name="hours" min="0" max="23" required /><br><br>
+
+            <label>Minutes:</label>
+            <input type="number" name="minutes" min="0" max="59" required /><br><br>
+
+            <label>Seconds:</label>
+            <input type="number" name="seconds" min="0" max="59" required /><br><br>
+
+            <button type="submit" style="height:30px;width:200px;">Predict</button>
+        </form>
+
+<br>
+<br>
+<div style="position: relative; text-align: center; display: inline-block;">
+    <img src="https://tse4.mm.bing.net/th/id/OIP.vQJYZFuLozuZfa-B9nqU_AHaEK?w=1920&h=1080&rs=1&pid=ImgDetMain&o=7&rm=3"
+         alt="Car"
+         style="max-width: 100%; border-radius: 12px;">
+
+    <!-- Prediction Text Over Image -->
+    <div style="
+        position: absolute;
+        top: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        background-color: rgba(0, 0, 0, 0.6);
+        color: white;
+        padding: 10px 20px;
+        border-radius: 8px;
+        font-size: 20px;
+        font-weight: bold;">
+        {{ prediction_text }}
+    </div>
+</div>
+</body>
+</html>
